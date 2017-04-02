@@ -55,4 +55,4 @@ app.use(function(err, req, res, next) {
 });
 
 app.listen(3000);
-console.log('Откройте http://localhost:3000/');
+console.log('API работает на http://localhost:3000/');
