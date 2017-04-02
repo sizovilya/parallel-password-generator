@@ -16,3 +16,8 @@ Firstly, make free ports 8080 and 3000
 3) npm run
 
 **Open http://localhost:8080/ **
+
+
+## How to run tests  
+1) cd server  
+2) npm test
