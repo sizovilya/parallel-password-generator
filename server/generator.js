@@ -1,9 +1,4 @@
-const crypto = require("crypto");
+const generate = require('./generate')
 
-var waitDateOne = new Date();
-while ((new Date()) - waitDateOne <= 5000) {
-    //Nothing
-}
-
-process.send(crypto.randomBytes(20).toString('hex'))
+process.send(generate());
 process.disconnect();

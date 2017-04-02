@@ -26,7 +26,6 @@ app.post('/generate', function(req, res, next) {
     for (let i = 0; i < pwdCount; i++) {
         let child = child_process.fork('./generator');
         threads.push(child.pid);
-        console.log('Стартовал поток ', child.pid);
         child.on('message', function(message) {
             passwords.push(message);
             ++done;
@@ -39,7 +38,6 @@ app.post('/generate', function(req, res, next) {
 
     req.connection.on('close', function() {
         threads.forEach((pid) => {
-            console.log('Убит процесс ', pid);
             if (isRunning(pid))
                 process.kill(pid, 0);
             }
@@ -57,3 +55,4 @@ app.use(function(err, req, res, next) {
 });
 
 app.listen(3000);
+console.log('Откройте http://localhost:3000/');
